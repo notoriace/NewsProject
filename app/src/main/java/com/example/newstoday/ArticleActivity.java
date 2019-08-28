@@ -117,7 +117,7 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
 
 
     /**
-     * Adapter for the list of earthquakes
+     * Adapter for the list of articles
      */
     private ArticleAdapter mAdapter;
 
@@ -128,8 +128,8 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Article>> loader, List<Article> earthquakes) {
-        // Set empty state text to display "No earthquakes found."
+    public void onLoadFinished(Loader<List<Article>> loader, List<Article> articles) {
+        // Set empty state text to display "No articles found."
         mEmptyStateTextView.setText(R.string.no_articles);
 
 
@@ -138,8 +138,8 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
-        if (earthquakes != null && !earthquakes.isEmpty()) {
-            mAdapter.addAll(earthquakes);
+        if (articles != null && !articles.isEmpty()) {
+            mAdapter.addAll(articles);
         }
     }
 
