@@ -33,7 +33,7 @@ import java.util.List;
 
 
 
-public class ArticleActivity extends AppCompatActivity implements androidx.loader.app.LoaderManager.LoaderCallbacks<List<Article>> {
+public class ArticleActivity extends AppCompatActivity implements LoaderCallbacks<List<Article>> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,31 +41,31 @@ public class ArticleActivity extends AppCompatActivity implements androidx.loade
         setContentView(R.layout.activity_main);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        ListView articleListView = (ListView) findViewById(R.id.list);
 
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
-        earthquakeListView.setEmptyView(mEmptyStateTextView);
+        articleListView.setEmptyView(mEmptyStateTextView);
 
-        // Create a new adapter that takes an empty list of earthquakes as input
+        // Create a new adapter that takes an empty list of articles as input
         mAdapter = new ArticleAdapter(this, new ArrayList<Article>());
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
-        earthquakeListView.setAdapter(mAdapter);
+        articleListView.setAdapter(mAdapter);
 
         // Set an item click listener on the ListView, which sends an intent to a web browser
-        // to open a website with more information about the selected earthquake.
-        earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        // to open a website with more information about the selected article.
+        articleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Find the current earthquake that was clicked on
+                // Find the current article that was clicked on
                 Article currentArticle = mAdapter.getItem(position);
 
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
                 Uri earthquakeUri = Uri.parse(currentArticle.getUrl());
 
-                // Create a new intent to view the earthquake URI
+                // Create a new intent to view the article URI
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
 
                 // Send the intent to launch a new activity
@@ -130,7 +130,7 @@ public class ArticleActivity extends AppCompatActivity implements androidx.loade
     @Override
     public void onLoadFinished(Loader<List<Article>> loader, List<Article> earthquakes) {
         // Set empty state text to display "No earthquakes found."
-        mEmptyStateTextView.setText(R.string.no_earthquakes);
+        mEmptyStateTextView.setText(R.string.no_articles);
 
 
         // Clear the adapter of previous earthquake data
