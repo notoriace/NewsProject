@@ -1,20 +1,21 @@
 package com.example.newstoday;
 
+import android.app.LoaderManager;
 import android.content.Intent;
+import android.content.Loader;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity; REMOVE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.Loader;
+
+
+
+
+
 import android.widget.TextView;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
