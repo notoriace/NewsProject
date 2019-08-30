@@ -36,6 +36,13 @@ import java.util.List;
 
 public class ArticleActivity extends AppCompatActivity implements LoaderCallbacks<List<Article>> {
 
+
+
+    public ArticleActivity() {
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
