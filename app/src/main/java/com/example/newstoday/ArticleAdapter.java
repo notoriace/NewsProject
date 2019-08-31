@@ -105,25 +105,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         sectionOfArticleView.setText(sectionOfArticle);
 
 
-        /**
 
-
-        //Create a new Date object from the time in milliseconds
-        Date dateOfQuake = new Date(currentArticle.getDate());
-        //Format the date string to something readable (i.e. Mar 8, 1992)
-        String formattedDateOfQuake = formatDate(dateOfQuake);
-        //Finds the text view for the date
-        TextView quakeDate = (TextView) listItemView.findViewById(R.id.date);
-        //Pulls the date from the array list to the date text view
-        quakeDate.setText(formattedDateOfQuake);
-        //Pulls the time of the quake into a readable format (i.e. 3PM)
-        String formattedTimeofQuake = formatTime(dateOfQuake);
-        //Finds the text view for the time
-        TextView timeOfQuake = (TextView) listItemView.findViewById(R.id.time);
-        //Pulls the time of the quake from the array and placed it in the time text view
-        timeOfQuake.setText(formattedTimeofQuake);
-
-         */
 
         return listItemView;
 

@@ -118,7 +118,7 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
 
 
     /**
-     * Constant value for the earthquake loader ID. We can choose any integer.
+     * Constant value for the article loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
      */
     private static final int ARTICLE_LOADER_ID = 1;
@@ -141,10 +141,10 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
         mEmptyStateTextView.setText(R.string.no_articles);
 
 
-        // Clear the adapter of previous earthquake data
+        // Clear the adapter of previous article data
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link article}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (articles != null && !articles.isEmpty()) {
             mAdapter.addAll(articles);
@@ -203,7 +203,7 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the article JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

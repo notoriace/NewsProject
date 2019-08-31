@@ -56,12 +56,12 @@ public final class QueryUtils {
             // For each article in the articleArray, create an {@link Article} object
             for (int i = 0; i < articleArrayResults.length(); i++) {
                 Log.v("QueryUtils", "Entered Count");
-                // Get a single earthquake at position i within the list of earthquakes
+                // Get a single article at position i within the list of articles
                 JSONObject currentArticle = articleArrayResults.getJSONObject(i);
                 Log.v("QueryUtils", "set currentArticle");
-                // For a given earthquake, extract the JSONObject associated with the
+                // For a given article, extract the JSONObject associated with the
                 // key called "results", which represents a list of all results
-                // for that earthquake.
+                // for that article.
 
                 // Extract the value for the key called "webPublicationDate"
                 String date = currentArticle.getString("webPublicationDate");
@@ -93,10 +93,10 @@ public final class QueryUtils {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the article JSON results", e);
         }
 
-        // Return the list of earthquakes
+        // Return the list of articles
         return articles;
     }
 
@@ -115,10 +115,10 @@ public final class QueryUtils {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
-        // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
+        // Extract relevant fields from the JSON response and create a list of {@link article}s
         List<Article> articles = extractFeatureFromJson(jsonResponse);
 
-        // Return the list of {@link Earthquake}s
+        // Return the list of {@link article}s
         return articles;
     }
 
@@ -165,7 +165,7 @@ public final class QueryUtils {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the article JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
