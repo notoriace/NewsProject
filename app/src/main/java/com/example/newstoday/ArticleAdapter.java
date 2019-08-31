@@ -80,6 +80,11 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         //Finds the text view for the author
         TextView articleAuthor = (TextView) listItemView.findViewById(R.id.article_author);
         String authorOfArticle = currentArticle.getArticleAuthor();
+
+        //if (authorOfArticle = " ") {
+
+     //   }
+
         //Pulls the location from the array list to the location text view
         articleAuthor.setText(authorOfArticle);
 

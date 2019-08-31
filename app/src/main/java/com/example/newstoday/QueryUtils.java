@@ -76,9 +76,14 @@ public final class QueryUtils {
                 // Extract the value for the key called "webUrl"
                 String url = currentArticle.getString("webUrl");
                 Log.v("QueryUtils", "Hit Line 74");
+
+                JSONObject theFieldsInfo = currentArticle.getJSONObject("fields");
+
+                String newAuthor =theFieldsInfo.getString("byline");
+
                 // Create a new {@link Article} object with the title, author, date
                 // and url from the JSON response.
-                Article  article = new Article(title, author, date, url);
+                Article  article = new Article(title, newAuthor, date, url);
 
                 // Add the new {@link Article} to the list of articles.
                 articles.add(article);

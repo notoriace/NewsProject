@@ -114,7 +114,7 @@ public class ArticleActivity extends AppCompatActivity implements LoaderCallback
     public static final String LOG_TAG = ArticleActivity.class.getName();
 
     private static final String USGS_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=3634ef0a-56de-4b08-899f-54be060ca434";
+            "https://content.guardianapis.com/search?show-fields=byline&q=football&api-key=3634ef0a-56de-4b08-899f-54be060ca434";
 
 
     /**
