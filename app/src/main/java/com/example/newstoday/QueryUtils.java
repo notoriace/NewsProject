@@ -62,7 +62,7 @@ public final class QueryUtils {
                 // For a given earthquake, extract the JSONObject associated with the
                 // key called "results", which represents a list of all results
                 // for that earthquake.
-              
+
                 // Extract the value for the key called "webPublicationDate"
                 String date = currentArticle.getString("webPublicationDate");
                 Log.v("QueryUtils", "set date");

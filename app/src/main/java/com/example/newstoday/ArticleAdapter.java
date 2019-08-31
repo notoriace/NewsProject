@@ -23,6 +23,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         return dateFormat.format(dateOfArticle);
     }
 
+    private static final String DATE_SEPARATOR = "T";
+
     public ArticleAdapter(Activity context, ArrayList<Article> words) {
 
         /**
@@ -85,6 +87,15 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         TextView dateOfArticle = (TextView) listItemView.findViewById(R.id.date);
        // Sets the date of the article to the variable articleDate
         String articleDate = currentArticle.getArticleDate();
+
+        //The if statement below is to remove the time reference from the printing within the
+        //JSON file.
+
+        if (articleDate.contains(DATE_SEPARATOR)){
+            String[] numbericaldate = articleDate.split(DATE_SEPARATOR);
+            articleDate = numbericaldate[0];        }
+
+
         // Display the date of the current article  in that TextView
         dateOfArticle.setText(articleDate);
 
