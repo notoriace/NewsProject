@@ -81,10 +81,6 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         TextView articleAuthor = (TextView) listItemView.findViewById(R.id.article_author);
         String authorOfArticle = currentArticle.getArticleAuthor();
 
-        //if (authorOfArticle = " ") {
-
-     //   }
-
         //Pulls the location from the array list to the location text view
         articleAuthor.setText(authorOfArticle);
 
@@ -103,6 +99,10 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         // Display the date of the current article  in that TextView
         dateOfArticle.setText(articleDate);
+
+        TextView sectionOfArticleView = (TextView) listItemView.findViewById(R.id.article_section);
+        String sectionOfArticle = currentArticle.getArticleSection();
+        sectionOfArticleView.setText(sectionOfArticle);
 
 
         /**

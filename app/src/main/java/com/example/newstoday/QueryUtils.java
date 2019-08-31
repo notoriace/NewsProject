@@ -71,7 +71,7 @@ public final class QueryUtils {
                 String title = currentArticle.getString("webTitle");
 
                 // Extract the value for the key called "pillarName"
-                String author = currentArticle.getString("pillarName");
+                String section = currentArticle.getString("pillarName");
 
                 // Extract the value for the key called "webUrl"
                 String url = currentArticle.getString("webUrl");
@@ -83,7 +83,7 @@ public final class QueryUtils {
 
                 // Create a new {@link Article} object with the title, author, date
                 // and url from the JSON response.
-                Article  article = new Article(title, newAuthor, date, url);
+                Article  article = new Article(title, newAuthor, date, url, section);
 
                 // Add the new {@link Article} to the list of articles.
                 articles.add(article);

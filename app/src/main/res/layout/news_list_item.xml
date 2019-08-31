@@ -49,6 +49,11 @@
             android:textSize="16sp"
             tools:text="Long placeholder location that should wrap to more than 2 lines of text" />
 
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/article_author"
             android:layout_width="wrap_content"
@@ -58,8 +63,22 @@
             android:maxLines="1"
             android:textAllCaps="true"
             android:textSize="12sp"
+            android:layout_alignParentLeft="true"
             tools:text="John Doe" />
 
+        <TextView
+            android:id="@+id/article_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            tools:text="Article Section" />
+
+        </RelativeLayout>
 
 
     </LinearLayout>
