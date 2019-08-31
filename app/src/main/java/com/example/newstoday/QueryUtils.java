@@ -28,7 +28,9 @@ public final class QueryUtils {
     private static List<Article> extractFeatureFromJson(String articleJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(articleJSON)) {
+            Log.v("QueryUtils", "JSON Empty");
             return null;
+
         }
 
         // Create an empty ArrayList that we can start adding articles to
@@ -41,24 +43,31 @@ public final class QueryUtils {
 
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(articleJSON);
+            Log.v("QueryUtils", "JSON created");
 
             // Extract the JSONArray associated with the key called "response",
             // which represents a list of articles.
-            JSONArray articleArray = baseJsonResponse.getJSONArray("response");
+            JSONObject articleArray = baseJsonResponse.getJSONObject("response");
+            Log.v("QueryUtils", "Hit Response");
 
-            // For each earthquake in the articleArray, create an {@link Article} object
-            for (int i = 0; i < articleArray.length(); i++) {
+            //Get into results
+            JSONArray articleArrayResults = articleArray.getJSONArray("results");
 
+            // For each article in the articleArray, create an {@link Article} object
+            for (int i = 0; i < articleArrayResults.length(); i++) {
+                Log.v("QueryUtils", "Entered Count");
                 // Get a single earthquake at position i within the list of earthquakes
-                JSONObject currentArticle = articleArray.getJSONObject(i);
-
+                JSONObject currentArticle = articleArrayResults.getJSONObject(i);
+                Log.v("QueryUtils", "set currentArticle");
                 // For a given earthquake, extract the JSONObject associated with the
                 // key called "results", which represents a list of all results
                 // for that earthquake.
-                JSONObject results = currentArticle.getJSONObject("results");
+                JSONObject results = currentArticle.getJSONObject("type");
+                Log.v("QueryUtils", "set results to type");
 
                 // Extract the value for the key called "webPublicationDate"
                 String date = results.getString("webPublicationDate");
+                Log.v("QueryUtils", "set date");
 
                 // Extract the value for the key called "webTitle"
                 String title = results.getString("webTitle");
@@ -68,7 +77,7 @@ public final class QueryUtils {
 
                 // Extract the value for the key called "webUrl"
                 String url = results.getString("webUrl");
-
+                Log.v("QueryUtils", "Hit Line 74");
                 // Create a new {@link Article} object with the title, author, date
                 // and url from the JSON response.
                 Article  article = new Article(title, author, date, url);
