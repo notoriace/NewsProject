@@ -62,21 +62,19 @@ public final class QueryUtils {
                 // For a given earthquake, extract the JSONObject associated with the
                 // key called "results", which represents a list of all results
                 // for that earthquake.
-                JSONObject results = currentArticle.getJSONObject("type");
-                Log.v("QueryUtils", "set results to type");
-
+              
                 // Extract the value for the key called "webPublicationDate"
-                String date = results.getString("webPublicationDate");
+                String date = currentArticle.getString("webPublicationDate");
                 Log.v("QueryUtils", "set date");
 
                 // Extract the value for the key called "webTitle"
-                String title = results.getString("webTitle");
+                String title = currentArticle.getString("webTitle");
 
                 // Extract the value for the key called "pillarName"
-                String author = results.getString("pillarName");
+                String author = currentArticle.getString("pillarName");
 
                 // Extract the value for the key called "webUrl"
-                String url = results.getString("webUrl");
+                String url = currentArticle.getString("webUrl");
                 Log.v("QueryUtils", "Hit Line 74");
                 // Create a new {@link Article} object with the title, author, date
                 // and url from the JSON response.
